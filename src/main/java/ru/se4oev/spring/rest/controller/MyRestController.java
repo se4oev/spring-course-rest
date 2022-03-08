@@ -1,6 +1,7 @@
 package ru.se4oev.spring.rest.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.se4oev.spring.rest.entity.Employee;
@@ -25,6 +26,11 @@ public class MyRestController {
     @GetMapping("/employees")
     public List<Employee> showAllEmployees() {
         return employeeService.getAllEmployees();
+    }
+
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable int id) {
+        return employeeService.getEmployee(id);
     }
 
 }
